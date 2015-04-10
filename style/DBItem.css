@@ -1,0 +1,22 @@
+/* 
+    Document   : Ereignis.css
+    Created on : 15.07.2012, 17:37:23
+    Author     : kkapsner
+    Description:
+        Purpose of the stylesheet follows.
+*/
+article.DBItem table {
+	border-collapse: collapse;
+}
+article.DBItem td {
+	vertical-align: text-top;
+	padding: 0.25em 0.5em 0.25em 0.2em;
+}
+article.DBItem table tr + tr td {
+	border-top: 1px solid lightgray;
+}
+
+
+.collection.Computer > tbody > tr:nth-child(2n+1) {
+    background-color: lightgray;
+}
