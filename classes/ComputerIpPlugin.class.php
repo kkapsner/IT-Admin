@@ -17,10 +17,6 @@ class ComputerIPPlugin extends DBItemPlugin{
 	public function isValidClass($classSpecifier) {
 		return $classSpecifier->getClassName() === "Computer";
 	}
-	
-	public function getIP(DBItem $item) {
-		return file_get_contents("https://bigmac.e14.ph.tum.de/utils/ipList/singleNameRequest.php?name=" . urlencode($item->name));
-	}
 
 }
 
