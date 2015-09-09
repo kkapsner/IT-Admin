@@ -1,7 +1,6 @@
 <?php
 if (include("login.php")){
-	if (array_key_exists("id", $_GET)){
-		$item = DBItem::getCLASS($class, $_GET["id"]);
+	if (array_key_exists("id", $_GET) && ($item = DBItem::getCLASS($class, $_GET["id"]))){
 		$permission = $admins->isMember($user);
 		foreach ($item->administrators as $admin){
 			if ($user === $admin->userId){

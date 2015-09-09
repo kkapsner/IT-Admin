@@ -5,3 +5,13 @@ Options +ExecCGI
 	order deny,allow
 	deny from all
 </Files>
+
+
+RewriteEngine on
+Options +FollowSymLinks
+
+RewriteCond %{REQUEST_URI} !^$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^(.+)$ index.php?action=show&id=getByName&class=Computer&name=$1&%{QUERY_STRING} [L]

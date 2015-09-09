@@ -23,9 +23,17 @@ foreach ($config->ACTIONS as $actionName => $a){
 			$subItem->active = $item->active && ($c === $class);
 		}
 	}
-//	if ($class && array_key_exists("id", $_GET)){
-//		$item->url .= "&class=" . $class . "&id=" . $_GET["id"];
-//	}
+	if (($a === "show" || $a === "edit") && ($a !== $action) && $class && array_key_exists("id", $_GET)){
+		$id = $_GET["id"];
+		if ($id){
+			if (is_numeric($id)){
+				$item->url .= "&class=" . $class . "&id=" . $id;
+			}
+			elseif ($id === "getByName"){
+				$item->url .= "&class=" . $class . "&name=" . $_GET["name"];
+			}
+		}
+	}
 }
 
 $item = $temp->mainNavigation->addItem("logout", "logout.php");
